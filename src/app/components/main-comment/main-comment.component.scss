@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   margin: 1rem;
   width: 60%;
@@ -10,6 +10,17 @@
   border-radius: 10px;
 }
 
+.delete {
+  border: none;
+  background-color: white;
+  color: red;
+}
+
+.edit {
+  border: none;
+  background-color: white;
+  color: rgb(76, 70, 161);
+}
 
 
 

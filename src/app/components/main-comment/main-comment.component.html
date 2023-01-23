@@ -1,18 +1,35 @@
 <div class="container">
-  <button
-    class="delete"
-    *ngIf="comment.user.username === currentUser.username"
-    (click)="deleteComment()"
-  >
-    delete
-  </button>
-  <img src="{{ comment.user.image.png }}" alt="" />
+  <div>
+    <img src="{{ comment.user.image.png }}" alt="" />
+  </div>
+
+  <div>
+    <input *ngIf="isEditing" [(ngModel)]="comment.content" />
+  </div>
+
   <div>
     {{ comment.content }}
   </div>
 
   <div>
     {{ comment.id }}
+  </div>
+
+  <div class="buttons">
+    <button
+      class="delete"
+      *ngIf="comment.user.username === currentUser.username"
+      (click)="deleteComment()"
+    >
+      Delete
+    </button>
+    <button
+      class="edit"
+      *ngIf="comment.user.username === currentUser.username"
+      (click)="isEditing = !isEditing"
+    >
+      Edit
+    </button>
   </div>
 </div>
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import json from '../assets/data/data.json';
+import { FormsModule } from '@angular/forms';
 import { CurrentUser , CommentMain ,Reply } from 'src/app/app.model';
 
 
@@ -27,9 +28,15 @@ export class AppComponent {
   }
 
   onNewCommentHandler(newComment: any) {
-    // //finding max id
-    // const maxId = ./////
-    // newComment.id = ++maxId;
+    //generate max Id
+    // let maxId = this.data.comments.reduce((max, comment) => Math.max(max, comment.id), 0);
+    let maxId = 0;
+    this.data.comments.forEach((comment: { id: number; }) => {
+        if (comment.id > maxId) {
+            maxId = comment.id;
+        }
+    });
+    newComment.id = ++maxId;
     console.log(this.data.comments);
 
     this.data.comments.push(newComment);
