@@ -1,0 +1,13 @@
+<div class="form">
+  <form action="" (ngSubmit)="addComment()" class="enter-commnet-main">
+    <img src="{{ currentUser.image.png }}" alt="" class="avatar" />
+    <textarea
+      [(ngModel)]="commentContent"
+      name="comment"
+      class="enter-comment"
+      placeholder="Add Comment"
+    >
+    </textarea>
+    <button class="send">Send</button>
+  </form>
+</div>

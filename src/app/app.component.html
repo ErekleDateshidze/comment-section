@@ -1,1 +1,14 @@
-<app-comment></app-comment>
+<main>
+  <div *ngFor="let comment of data.comments">
+    <app-main-comment
+      [currentUser]="data.currentUser"
+      [comment]="comment"
+      (onCommentDelete)="onCommentDeletedHandler($event)"
+    ></app-main-comment>
+  </div>
+
+  <app-new-main-coment
+    [currentUser]="data.currentUser"
+    (onNewComment)="onNewCommentHandler($event)"
+  ></app-new-main-coment>
+</main>

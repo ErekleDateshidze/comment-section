@@ -1,0 +1,21 @@
+<div class="container">
+  <button
+    class="delete"
+    *ngIf="comment.user.username === currentUser.username"
+    (click)="deleteComment()"
+  >
+    delete
+  </button>
+  <img src="{{ comment.user.image.png }}" alt="" />
+  <div>
+    {{ comment.content }}
+  </div>
+
+  <div>
+    {{ comment.id }}
+  </div>
+</div>
+
+<div *ngFor="let reply of comment.replies">
+  <app-reply [reply]="reply"></app-reply>
+</div>
