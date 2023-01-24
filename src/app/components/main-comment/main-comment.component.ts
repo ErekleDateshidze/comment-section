@@ -12,15 +12,27 @@ export class MainCommentComponent {
 
   editing = false;
   isEditing = false;
-
+  showConfirmDialog = false;
+  
   @Output() onCommentDelete = new EventEmitter<any>();
+  @Output() onCommentReply = new EventEmitter<any>();
+
 
   deleteComment() {
-    console.log('edada');
+    this.showConfirmDialog = false;
     this.onCommentDelete.emit(this.comment);
   }
+
+  hideConfirmDialog(){
+    this.showConfirmDialog = false;
+  } 
 
   editComment() {
     this.editing = !this.editing;
   }
+
+  replyToComment() {
+    this.onCommentReply.emit(this.comment);
+  }
+
 }
