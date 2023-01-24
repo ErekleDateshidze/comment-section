@@ -9,12 +9,8 @@ import { CurrentUser , CommentMain ,Reply } from 'src/app/app.model';
 export class MainCommentComponent {
   @Input() comment: any;
   @Input() currentUser: any;
-  originalCommentContent: any;
 
-  ngOnInit() {
-  this.originalCommentContent = this.comment.content;
-  }
-
+  editing = false;
   isEditing = false;
 
   @Output() onCommentDelete = new EventEmitter<any>();
@@ -22,5 +18,9 @@ export class MainCommentComponent {
   deleteComment() {
     console.log('edada');
     this.onCommentDelete.emit(this.comment);
+  }
+
+  editComment() {
+    this.editing = !this.editing;
   }
 }
