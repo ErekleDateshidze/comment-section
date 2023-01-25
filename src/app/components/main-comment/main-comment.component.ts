@@ -35,4 +35,12 @@ export class MainCommentComponent {
     this.onCommentReply.emit(this.comment);
   }
 
+  upvote() {
+    this.comment.score++;
+  }
+  
+  downvote() {
+    this.comment.score--;
+  }
+
 }
