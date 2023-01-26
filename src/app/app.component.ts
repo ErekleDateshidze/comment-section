@@ -53,4 +53,18 @@ export class AppComponent {
     this.data.comments.splice(index, 1);
     localStorage.setItem('data', JSON.stringify(this.data));
   }
+
+  onCommentReply(comment:any) {
+    const newReply = {
+      // id: this.generateMaxId(),
+      content: '',
+      createdAt: '',
+      score: 0,
+      user: this.data.currentUser,
+      replyingTo: comment.user.username
+    }
+    comment.replies.push(newReply);
+    localStorage.setItem('data', JSON.stringify(this.data));
+  }
+  
 }

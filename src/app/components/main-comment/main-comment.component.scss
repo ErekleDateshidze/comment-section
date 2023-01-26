@@ -23,5 +23,50 @@
 }
 
 
+/* The overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* The confirmation popup */
+.confirmation-popup {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  width: 300px;
+}
+
+/* The confirmation message */
+.confirmation-message {
+  margin-bottom: 20px;
+}
+
+/* The confirmation buttons */
+.confirmation-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* The confirmation button styles */
+.confirmation-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 
 
