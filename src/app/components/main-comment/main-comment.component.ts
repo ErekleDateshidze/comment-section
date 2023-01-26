@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, Output , } from '@angular/core';
-import { CurrentUser , CommentMain ,Reply } from 'src/app/app.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-main-comment',
@@ -9,42 +8,24 @@ import { CurrentUser , CommentMain ,Reply } from 'src/app/app.model';
 export class MainCommentComponent {
   @Input() comment: any;
   @Input() currentUser: any;
-<<<<<<< HEAD
- 
-  editing = false;
-  isEditing = false;
-  editComment() {
-    this.editing = !this.editing;
-  }
-
   @Output() onCommentDelete = new EventEmitter<any>();
   @Output() onReply = new EventEmitter<any>();
-=======
-
+  @Output() onCommentReply = new EventEmitter<any>();
   editing = false;
   isEditing = false;
   showConfirmDialog = false;
-  
-  @Output() onCommentDelete = new EventEmitter<any>();
-  @Output() onCommentReply = new EventEmitter<any>();
 
->>>>>>> b9e33f5e6dec4fb60bd8f767ca519456f294a57d
+  editComment() {
+    this.editing = !this.editing;
+  }
 
   deleteComment() {
     this.showConfirmDialog = false;
     this.onCommentDelete.emit(this.comment);
   }
 
-<<<<<<< HEAD
- 
-}
-=======
-  hideConfirmDialog(){
+  hideConfirmDialog() {
     this.showConfirmDialog = false;
-  } 
-
-  editComment() {
-    this.editing = !this.editing;
   }
 
   replyToComment() {
@@ -54,10 +35,8 @@ export class MainCommentComponent {
   upvote() {
     this.comment.score++;
   }
-  
+
   downvote() {
     this.comment.score--;
   }
-
 }
->>>>>>> b9e33f5e6dec4fb60bd8f767ca519456f294a57d
