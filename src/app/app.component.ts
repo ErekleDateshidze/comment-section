@@ -11,7 +11,7 @@ import { CurrentUser , CommentMain ,Reply } from 'src/app/app.model';
 })
 export class AppComponent {
   comment: any;
-  currentUser: any;
+  currentUser: CurrentUser | undefined;
   data: any | undefined;
   constructor() {
     this.checkData();
@@ -31,10 +31,15 @@ export class AppComponent {
     //generate max Id
     // let maxId = this.data.comments.reduce((max, comment) => Math.max(max, comment.id), 0);
     let maxId = 0;
-    this.data.comments.forEach((comment: { id: number; }) => {
+    this.data.comments.forEach((comment:CommentMain) => {
         if (comment.id > maxId) {
             maxId = comment.id;
-        }
+        } 
+        comment.replies.forEach((reply) => {
+          if(reply.id>maxId) {
+            maxId=reply.id
+          }
+        })
     });
     newComment.id = ++maxId;
     console.log(this.data.comments);
